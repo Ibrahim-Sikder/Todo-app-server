@@ -34,6 +34,8 @@ async function run(){
             res.send(users)
         })
 
+        // update todo item api
+
         app.put('/users/:id', async(req, res)=>{{
             const id = req.params.id;
             const filter = { _id: new ObjectId(id)};
@@ -51,6 +53,8 @@ async function run(){
             res.send(result)
 
         }})
+        // view todo item api
+
         app.get('/users/:id', async (req, res)=>{
             const id = req.params.id;
             const query = {_id: new ObjectId(id)};
@@ -58,13 +62,12 @@ async function run(){
             res.send(user);
         })
 
+        // todo add api 
 
-         app.post('/users', async (req, res)=>{
-            const user = req.body ;
-            console.log(user);
-            const result = await userCollection.insertOne(user)
-            res.send(result)
-       })
+       
+       
+       // delete todo item api 
+
        app.delete('/users/:id', async (req, res)=>{
         const id = req.params.id;
         // console.log('Trying to delete', id);
