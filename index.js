@@ -64,10 +64,15 @@ async function run(){
 
         // todo add api 
 
-       
+         app.post('/users', async (req, res)=>{
+            const user = req.body ;
+            console.log(user);
+            const result = await userCollection.insertOne(user)
+            res.send(result)
+       })
        
        // delete todo item api 
-
+       
        app.delete('/users/:id', async (req, res)=>{
         const id = req.params.id;
         // console.log('Trying to delete', id);
